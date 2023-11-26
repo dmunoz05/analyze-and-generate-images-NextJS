@@ -2,26 +2,357 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  display: grid;
+  justify-items: center;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  /* background: #1f1934; */
+  background: #131313;
+  color: #fff;
+}
+
+.contain-all {
+  height: 100vh;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 1.75rem;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+
+/* Button generate */
+.btn {
+  animation: 3s ease-in 1s reverse both running slideinBtn;
+  border: none;
+  width: 12em;
+  height: 3em;
+  border-radius: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  background: #272427;
+  cursor: pointer;
+  transition: all 450ms ease-in-out;
+}
+
+.sparkle {
+  fill: #AAAAAA;
+  transition: all 800ms ease;
+}
+
+.text {
+  font-weight: 600;
+  color: #AAAAAA;
+  font-size: medium;
+}
+
+.btn:hover {
+  background: linear-gradient(0deg, #A47CF3, #683FEA);
+  box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4),
+    inset 0px -4px 0px 0px rgba(0, 0, 0, 0.2),
+    0px 0px 0px 4px rgba(255, 255, 255, 0.2),
+    0px 0px 180px 0px #9917FF;
+  transform: translateY(-2px);
+}
+
+.btn:hover .text {
+  color: white;
+}
+
+.btn:hover .sparkle {
+  fill: white;
+  transform: scale(1.2);
+}
+
+/* Input */
+
+.input {
+  animation: 3s ease-in 1s reverse both running slideinInput;
+  width: 30rem;
+  border: 2px solid #8707ff;
+  border-radius: 10px;
+  padding: 10px 25px;
+  background: transparent;
+}
+
+.input:active,
+.input:hover,
+.input:focus {
+  box-shadow: 2px 2px 15px #8707ff inset;
+}
+
+
+/* Loader  */
+.spinner {
+  right: 45%;
+  background-image: linear-gradient(rgb(186, 66, 255) 35%, rgb(0, 225, 255));
+  width: 200px;
+  height: 200px;
+  animation: spinning82341 1.7s linear infinite;
+  text-align: center;
+  border-radius: 50px;
+  filter: blur(1px);
+  box-shadow: 0px -5px 20px 0px rgb(186, 66, 255), 0px 5px 20px 0px rgb(0, 225, 255);
+}
+
+.spinner1 {
+  background-color: rgb(36, 36, 36);
+  width: 200px;
+  height: 200px;
+  border-radius: 50px;
+  filter: blur(10px);
+}
+
+
+
+/* KeyFrames for input and bttns */
+
+@keyframes spinning82341 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rot55 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes slideinInput {
+  to {
+    opacity: 0;
+    box-shadow: -10px -10px 10px #6359f8, 0px -10px 10px 0px #9c32e2, 10px -10px 10px #f36896, 10px 0 10px #ff0b0b, 10px 10px 10px 0px#ff5500, 0 10px 10px 0px #ff9500, -10px 10px 10px 0px #ffb700;
+    transform: scale(1.3);
+  }
+
+  from {
+    opacity: 1;
+  }
+}
+
+@keyframes slideinBtn {
+  to {
+    opacity: 0;
+    transform: scale(1.3);
+  }
+
+  from {
+    opacity: 1;
+  }
+}
+
+
+/* Style modal */
+
+.ReactModal__Overlay {
+  position: static !important;
+}
+
+.ReactModal__Content {
+  inset: auto !important;
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%);
+  width: fit-content;
+  height: fit-content;
+  /* width: 40rem; */
+  /* height: 30rem; */
+  overflow: hidden !important;
+  background: #2d3748 !important;
+  padding: 2rem;
+  border-radius: 2.75rem !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  z-index: 30;
+}
+
+.ReactModal__Content::before {
+  content: "";
+  width: 6rem;
+  /* Adjust as needed */
+  height: 6rem;
+  /* Adjust as needed */
+  position: absolute;
+  background-color: #9f7aea;
+  /* Adjust color */
+  border-radius: 9999px;
+  /* Rounded full */
+  z-index: -10;
+  filter: blur(8px);
+  /* Adjust blur */
+}
+
+.ReactModal__Content::after {
+  content: "";
+  width: 8rem;
+  /* Adjust as needed */
+  height: 8rem;
+  /* Adjust as needed */
+  position: absolute;
+  background: #90cdf4 !important;
+  /* Adjust color */
+  border-radius: 9999px;
+  /* Rounded full */
+  z-index: -10;
+  filter: blur(12px);
+  /* Adjust blur */
+  top: 2rem;
+  /* Adjust top position */
+  right: -1.5rem;
+  /* Adjust right position */
+}
+
+
+
+/* Message style */
+
+.terminal-loader {
+  border: 0.1em solid #333;
+  background-color: #1a1a1a;
+  color: #0f0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1em;
+  padding: 1.5em 1em;
+  width: 30rem;
+  margin: 30px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.terminal-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1.5em;
+  background-color: #333;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  padding: 0 0.4em;
+  box-sizing: border-box;
+}
+
+.terminal-controls {
+  float: right;
+}
+
+.control {
+  display: inline-block;
+  width: 0.6em;
+  height: 0.6em;
+  margin-left: 0.4em;
+  border-radius: 50%;
+  background-color: #777;
+}
+
+.control.close {
+  background-color: #e33;
+}
+
+.control.minimize {
+  background-color: #ee0;
+}
+
+.control.maximize {
+  background-color: #0b0;
+}
+
+.terminal-title {
+  float: left;
+  line-height: 1.5em;
+  color: #eee;
+}
+
+.textMessage {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0.2em solid green;
+  /* Cursor */
+  /* animation: typeAndDelete 4s steps(11) infinite, blinkCursor 0.5s step-end infinite alternate; */
+  animation: typeAndDelete 6s steps(11) infinite, blinkCursor 0.5s;
+  margin-top: 1.5em;
+}
+
+@keyframes blinkCursor {
+  50% {
+      border-right-color: transparent;
+  }
+}
+
+@keyframes typeAndDelete {
+  0%,
+  10% {
+      width: 0;
+  }
+  45%,
+  55% {
+      width: 13.5em;
+  }
+  /* adjust width based on content */
+  90%,
+  100% {
+      width: 0;
+  }
 }
