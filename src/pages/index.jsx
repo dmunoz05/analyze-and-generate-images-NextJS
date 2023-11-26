@@ -148,7 +148,7 @@ function Home() {
         Authorization: `Bearer ${process.env.NEXT_PUBLIC_OPENAI_API_KEY}`,
       };
 
-      const response = await axios.post(process.env.NEXT_API_API_GENETATE_IMAGE_URL, requestData, {
+      const response = await axios.post(process.env.NEXT_PUBLIC_API_GENETATE_IMAGE_URL, requestData, {
         headers: headers,
       });
 
