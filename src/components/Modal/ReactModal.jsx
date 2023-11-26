@@ -1,7 +1,6 @@
 "use client"
 import React, { useState } from "react";
 import Modal from "react-modal";
-// import customStyles from "@ai/components/Modal/customStyles.css";
 
 function ReactModal({ analyzeImage, generatedImages, generateImage, typeModal, closeModal, modalIsOpen, message, errorKeyInserted }) {
   const [keyOpenIA, setKeyOpenIA] = useState('');
