@@ -17,6 +17,6 @@
       "@ai/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/index.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/index.jsx", "src/components/Cover/Cover.jsx"],
   "exclude": ["node_modules"]
 }

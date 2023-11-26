@@ -1,6 +1,6 @@
 import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { transitionVariantsPage } from "../../utils/motionTransitions.ts";
+import { transitionVariantsPage } from "@ai/utils/motionTransitions";
 
 export default function Transition() {
   return (
